@@ -167,12 +167,7 @@ export default function HeroSection() {
           </a>
           <a
             href="#vision"
-            className="px-8 py-4 rounded-2xl font-semibold text-black hover:text-black transition-all duration-300"
-            style={{
-              background: 'rgba(255,255,255,0.8)',
-              border: '1.5px solid rgba(0,0,0,0.2)',
-              backdropFilter: 'blur(8px)',
-            }}
+            className="px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
           >
             My Vision →
           </a>
