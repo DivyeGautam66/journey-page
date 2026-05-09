@@ -81,7 +81,7 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
           {/* Connect CTA */}
           <button
             onClick={() => go('vision')}
-            className="ml-3 px-5 py-2 rounded-xl text-sm font-semibold text-white bg-black hover:bg-neutral-800 transition-all duration-300 hover:shadow-gray-300"
+            className="relative ml-2 px-4 py-2 rounded-xl text-sm font-medium tracking-wide transition-all duration-250 text-slate-500 hover:text-black"
           >
             Connect
           </button>
