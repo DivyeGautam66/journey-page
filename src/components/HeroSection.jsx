@@ -147,8 +147,7 @@ export default function HeroSection() {
           transition={{ delay: 0.7, duration: 0.7 }}
           className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Not a résumé. Not a portfolio. This is my{' '}
-          <span className="text-black font-semibold">unfiltered journey</span> — the
+          Not a résumé. Not a portfolio. This is my unfiltered journey — the
           wins, the failures, the pivots, and the vision that keeps me going.
         </motion.p>
 
@@ -161,19 +160,10 @@ export default function HeroSection() {
         >
           <a
             href="#timeline"
-            className="group relative px-8 py-4 rounded-2xl font-semibold text-white overflow-hidden transition-all duration-300 shadow-lg hover:shadow-indigo-200"
-            style={{
-              background: '#000000',
-            }}
+            className="group flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              Start Journey
-              <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
-            </span>
-            <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              style={{ background: '#111111' }}
-            />
+            Start Journey
+            <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="#vision"
