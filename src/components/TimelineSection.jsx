@@ -40,10 +40,10 @@ function TimelineCard({ milestone, index }) {
           <div className={`flex items-center gap-3 mb-4 ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
             {isLeft ? (
               <>
-                <span className="font-mono-custom text-slate-400 text-xs font-medium">{milestone.year}</span>
+                <span className="font-mono-custom text-slate-400 text-sm font-medium">{milestone.year}</span>
                 <span className="text-slate-300">·</span>
                 <span
-                  className="font-mono-custom text-xs font-semibold"
+                  className="font-mono-custom text-sm font-semibold"
                   style={{ color: milestone.color }}
                 >
                   {milestone.phase}
@@ -52,28 +52,28 @@ function TimelineCard({ milestone, index }) {
             ) : (
               <>
                 <span
-                  className="font-mono-custom text-xs font-semibold"
+                  className="font-mono-custom text-sm font-semibold"
                   style={{ color: milestone.color }}
                 >
                   {milestone.phase}
                 </span>
                 <span className="text-slate-300">·</span>
-                <span className="font-mono-custom text-slate-400 text-xs font-medium">{milestone.year}</span>
+                <span className="font-mono-custom text-slate-400 text-sm font-medium">{milestone.year}</span>
               </>
             )}
           </div>
 
           {/* Text */}
-          <h3 className="font-syne font-bold text-xl text-slate-800 mb-1 group-hover:text-indigo-700 transition-colors">
+          <h3 className="font-syne font-bold text-3xl text-slate-800 mb-2 group-hover:text-indigo-700 transition-colors">
             {milestone.title}
           </h3>
-          <p className="text-sm font-semibold mb-3" style={{ color: milestone.color }}>
+          <p className="text-lg font-semibold mb-4" style={{ color: milestone.color }}>
             {milestone.subtitle}
           </p>
-          <p className="text-slate-500 text-sm leading-relaxed">{milestone.description}</p>
+          <p className="text-slate-500 text-lg leading-relaxed">{milestone.description}</p>
 
           {/* Tags */}
-          <div className={`flex flex-wrap gap-2 mt-4 text-xs text-slate-500 font-medium ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
+          <div className={`flex flex-wrap gap-2 mt-5 text-sm text-slate-500 font-medium ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
             {milestone.tags.join(' · ')}
           </div>
         </div>
@@ -141,13 +141,13 @@ export default function TimelineSection({ standalone = false }) {
         transition={{ duration: 0.7 }}
         className="text-center mb-20 w-full flex flex-col items-center"
       >
-        <span className="font-mono-custom text-indigo-500 text-xs tracking-widest uppercase font-semibold">
+        <span className="font-mono-custom text-indigo-500 text-sm tracking-widest uppercase font-semibold">
           The Story
         </span>
-        <h2 className="font-syne font-black text-4xl md:text-6xl text-slate-800 mt-3 mb-4 text-center">
+        <h2 className="font-syne font-black text-5xl md:text-7xl text-slate-800 mt-4 mb-6 text-center">
           My <span className="gradient-text">Timeline</span>
         </h2>
-        <p className="text-slate-500 max-w-xl text-center">
+        <p className="text-slate-500 max-w-2xl text-center text-xl">
           Seven phases. Seven transformations in my life for something greater.
         </p>
       </motion.div>
