@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Volume2, VolumeX, ArrowUp } from 'lucide-react';
-import ambientSound from '../assets/audio/AliSoomroMusic, Ali Raza - Muse (Official Visualizer) BIRDS IN THE TRAP.mp3';
+import ambientSound from '../assets/audio/Wanderlust.mp4';
 
 const sectionsData = [
   {
@@ -242,7 +242,7 @@ export default function MyJourneySection({ standalone = false }) {
   useEffect(() => {
     if (audioRef.current) {
       // Set the initial starting point to 19 seconds
-      audioRef.current.currentTime = 21;
+      audioRef.current.currentTime = 0;
     }
   }, []);
 
