@@ -108,11 +108,7 @@ export default function HeroSection({ onNavigate }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="inline-flex items-center px-4 py-2 rounded-full text-black text-sm font-medium mb-8"
-          style={{
-            background: 'rgba(0,0,0,0.05)',
-            border: '1px solid rgba(0,0,0,0.15)',
-          }}
+          className="inline-flex items-center text-black text-sm font-medium mb-8"
         >
           Divye Gautam
         </motion.div>
