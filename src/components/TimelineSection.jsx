@@ -4,7 +4,7 @@ import { motion, useInView } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
-  Lightbulb, Flame, Rocket, Trophy, RefreshCw, Zap,
+  Lightbulb, Flame, Rocket, Trophy, RefreshCw, Zap, ArrowRight,
 } from 'lucide-react';
 import { timelineMilestones } from '../data/journeyData';
 
@@ -101,7 +101,7 @@ function TimelineCard({ milestone, index }) {
   );
 }
 
-export default function TimelineSection({ standalone = false }) {
+export default function TimelineSection({ standalone = false, onNavigate }) {
   const lineRef = useRef(null);
   const sectionRef = useRef(null);
 
@@ -175,6 +175,26 @@ export default function TimelineSection({ standalone = false }) {
           </div>
         </div>
       </div>
+
+      {/* My Journey CTA */}
+      {onNavigate && (
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col items-center gap-4 mt-40 mb-8"
+        >
+
+          <button
+            onClick={() => onNavigate('journey')}
+            className="group flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
+          >
+            My Journey
+            <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
+          </button>
+        </motion.div>
+      )}
     </section>
   );
 }

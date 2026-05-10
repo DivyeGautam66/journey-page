@@ -32,7 +32,7 @@ export default function App() {
         <HeroSection onNavigate={navigate} />
       </>
     ),
-    timeline: <TimelineSection standalone />,
+    timeline: <TimelineSection standalone onNavigate={navigate} />,
     journey: <MyJourneySection standalone />,
   };
 
