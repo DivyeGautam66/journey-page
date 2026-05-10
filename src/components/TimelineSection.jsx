@@ -19,33 +19,48 @@ function TimelineCard({ milestone, index }) {
   const Icon = iconMap[milestone.icon] || Zap;
 
   return (
-    <div className={`relative flex items-center gap-0 md:gap-8 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col`}>
+    <div className={`relative flex items-center justify-between w-full gap-0 ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'} flex-col`}>
       {/* Card */}
       <motion.div
         ref={ref}
         initial={{ opacity: 0, x: isLeft ? -50 : 50, y: 16 }}
         animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-        className="md:w-[calc(50%-3rem)] w-full group"
+        className={`md:w-[calc(50%-2.5rem)] w-full group flex ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}
       >
-        <div className="relative p-6 md:p-8 transition-all duration-500">
+        <div className={`relative p-6 md:p-8 transition-all duration-500 w-full ${isLeft ? 'md:text-right' : 'md:text-left'} text-left`}>
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[1.25rem]"
             style={{
-              background: `radial-gradient(circle at 10% 10%, ${milestone.color}08 0%, transparent 60%)`,
+              background: `radial-gradient(circle at ${isLeft ? '90%' : '10%'} 10%, ${milestone.color}08 0%, transparent 60%)`,
             }}
           />
 
           {/* Phase badge */}
-          <div className="flex items-center gap-3 mb-4">
-            <span
-              className="font-mono-custom text-xs font-semibold"
-              style={{ color: milestone.color }}
-            >
-              {milestone.phase}
-            </span>
-            <span className="text-slate-300">·</span>
-            <span className="font-mono-custom text-slate-400 text-xs font-medium">{milestone.year}</span>
+          <div className={`flex items-center gap-3 mb-4 ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
+            {isLeft ? (
+              <>
+                <span className="font-mono-custom text-slate-400 text-xs font-medium">{milestone.year}</span>
+                <span className="text-slate-300">·</span>
+                <span
+                  className="font-mono-custom text-xs font-semibold"
+                  style={{ color: milestone.color }}
+                >
+                  {milestone.phase}
+                </span>
+              </>
+            ) : (
+              <>
+                <span
+                  className="font-mono-custom text-xs font-semibold"
+                  style={{ color: milestone.color }}
+                >
+                  {milestone.phase}
+                </span>
+                <span className="text-slate-300">·</span>
+                <span className="font-mono-custom text-slate-400 text-xs font-medium">{milestone.year}</span>
+              </>
+            )}
           </div>
 
           {/* Text */}
@@ -58,7 +73,7 @@ function TimelineCard({ milestone, index }) {
           <p className="text-slate-500 text-sm leading-relaxed">{milestone.description}</p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-500 font-medium">
+          <div className={`flex flex-wrap gap-2 mt-4 text-xs text-slate-500 font-medium ${isLeft ? 'md:justify-end' : 'md:justify-start'}`}>
             {milestone.tags.join(' · ')}
           </div>
         </div>
@@ -81,7 +96,7 @@ function TimelineCard({ milestone, index }) {
       </motion.div>
 
       {/* Spacer for opposite side */}
-      <div className="hidden md:block md:w-[calc(50%-3rem)]" />
+      <div className="hidden md:block md:w-[calc(50%-2.5rem)]" />
     </div>
   );
 }
@@ -115,7 +130,7 @@ export default function TimelineSection({ standalone = false }) {
     <section
       id="timeline"
       ref={sectionRef}
-      className="section-pad relative"
+      className="section-pad relative overflow-hidden"
       style={{ background: 'linear-gradient(180deg, #ffffff 0%, #f8f9ff 100%)', paddingTop: standalone ? '8rem' : undefined }}
     >
       {/* Heading */}
@@ -124,38 +139,40 @@ export default function TimelineSection({ standalone = false }) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.7 }}
-        className="text-center mb-20"
+        className="text-center mb-20 w-full flex flex-col items-center"
       >
         <span className="font-mono-custom text-indigo-500 text-xs tracking-widest uppercase font-semibold">
           The Story
         </span>
-        <h2 className="font-syne font-black text-4xl md:text-6xl text-slate-800 mt-3 mb-4">
+        <h2 className="font-syne font-black text-4xl md:text-6xl text-slate-800 mt-3 mb-4 text-center">
           My <span className="gradient-text">Timeline</span>
         </h2>
-        <p className="text-slate-500 max-w-xl mx-auto">
+        <p className="text-slate-500 max-w-xl text-center">
           Seven phases. Seven transformations in my life for something greater.
         </p>
       </motion.div>
 
       {/* Timeline */}
-      <div className="relative max-w-5xl mx-auto">
-        {/* Center vertical line */}
-        <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-slate-100">
-          <div
-            ref={lineRef}
-            className="w-full origin-top"
-            style={{
-              height: '100%',
-              background: 'linear-gradient(180deg, #6366f1, #8b5cf6, #ec4899, #06b6d4, #22c55e)',
-              transformOrigin: 'top',
-            }}
-          />
-        </div>
+      <div className="w-full flex justify-center">
+        <div className="relative w-full max-w-5xl px-4 md:px-8">
+          {/* Center vertical line */}
+          <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-slate-200">
+            <div
+              ref={lineRef}
+              className="w-full origin-top"
+              style={{
+                height: '100%',
+                background: 'linear-gradient(180deg, #6366f1, #8b5cf6, #ec4899, #06b6d4, #22c55e)',
+                transformOrigin: 'top',
+              }}
+            />
+          </div>
 
-        <div className="flex flex-col gap-16 md:gap-24">
-          {timelineMilestones.map((m, i) => (
-            <TimelineCard key={m.id} milestone={m} index={i} />
-          ))}
+          <div className="flex flex-col gap-12 md:gap-20 w-full">
+            {timelineMilestones.map((m, i) => (
+              <TimelineCard key={m.id} milestone={m} index={i} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
