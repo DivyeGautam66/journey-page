@@ -27,24 +27,8 @@ function TimelineCard({ milestone, index }) {
         animate={inView ? { opacity: 1, x: 0, y: 0 } : {}}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
         className="md:w-[calc(50%-3rem)] w-full group"
-        style={{ borderRadius: '1.25rem' }}
       >
-        <div
-          className="relative p-6 md:p-8 rounded-[1.25rem] overflow-hidden transition-all duration-500 bg-white"
-          style={{
-            border: '1.5px solid rgba(0,0,0,0.07)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.borderColor = `${milestone.color}40`;
-            e.currentTarget.style.boxShadow = `0 8px 32px ${milestone.color}18`;
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = 'rgba(0,0,0,0.07)';
-            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)';
-          }}
-        >
-          {/* Subtle glow on hover */}
+        <div className="relative p-6 md:p-8 transition-all duration-500">
           <div
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-[1.25rem]"
             style={{
@@ -55,24 +39,13 @@ function TimelineCard({ milestone, index }) {
           {/* Phase badge */}
           <div className="flex items-center gap-3 mb-4">
             <span
-              className="font-mono-custom text-xs font-semibold px-2.5 py-1 rounded-full"
-              style={{ background: `${milestone.color}12`, color: milestone.color }}
+              className="font-mono-custom text-xs font-semibold"
+              style={{ color: milestone.color }}
             >
               {milestone.phase}
             </span>
             <span className="text-slate-300">·</span>
             <span className="font-mono-custom text-slate-400 text-xs font-medium">{milestone.year}</span>
-          </div>
-
-          {/* Icon */}
-          <div
-            className="w-11 h-11 rounded-2xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-            style={{
-              background: `${milestone.color}12`,
-              border: `1.5px solid ${milestone.color}20`,
-            }}
-          >
-            <Icon size={20} style={{ color: milestone.color }} />
           </div>
 
           {/* Text */}
@@ -85,16 +58,8 @@ function TimelineCard({ milestone, index }) {
           <p className="text-slate-500 text-sm leading-relaxed">{milestone.description}</p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-2 mt-4">
-            {milestone.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-xs px-2.5 py-0.5 rounded-full text-slate-500 font-medium"
-                style={{ background: 'rgba(0,0,0,0.04)', border: '1px solid rgba(0,0,0,0.07)' }}
-              >
-                {tag}
-              </span>
-            ))}
+          <div className="flex flex-wrap gap-2 mt-4 text-xs text-slate-500 font-medium">
+            {milestone.tags.join(' · ')}
           </div>
         </div>
       </motion.div>
@@ -168,8 +133,7 @@ export default function TimelineSection({ standalone = false }) {
           My <span className="gradient-text">Timeline</span>
         </h2>
         <p className="text-slate-500 max-w-xl mx-auto">
-          Six phases. Six transformations. One continuous pursuit of becoming
-          something greater.
+          Seven phases. Seven transformations in my life for something greater.
         </p>
       </motion.div>
 

@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ChevronDown, Sparkles, ArrowRight } from 'lucide-react';
 
-const words = ['Engineer', 'Builder', 'Leader', 'Dreamer', 'Founder'];
+const words = ['Engineer', 'Builder', 'Leader', 'Dreamer'];
 
-export default function HeroSection() {
+export default function HeroSection({ onNavigate }) {
   const wordRef = useRef(null);
   const blobRef = useRef(null);
 
@@ -108,13 +108,12 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-black text-sm font-medium mb-8"
+          className="inline-flex items-center px-4 py-2 rounded-full text-black text-sm font-medium mb-8"
           style={{
             background: 'rgba(0,0,0,0.05)',
             border: '1px solid rgba(0,0,0,0.15)',
           }}
         >
-          <Sparkles size={13} />
           Divye Gautam
         </motion.div>
 
@@ -123,7 +122,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="font-syne font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight mb-6"
+          className="font-syne font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tight mb-12"
         >
           <span className="text-slate-800">I am a</span>
           <br />
@@ -134,10 +133,6 @@ export default function HeroSection() {
           >
             {words[0]}
           </span>
-          <br />
-          <span className="text-slate-400 text-3xl md:text-5xl font-light">
-            in the making.
-          </span>
         </motion.h1>
 
         {/* Tagline */}
@@ -147,8 +142,7 @@ export default function HeroSection() {
           transition={{ delay: 0.7, duration: 0.7 }}
           className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Not a résumé. Not a portfolio. This is my unfiltered journey — the
-          wins, the failures, the pivots, and the vision that keeps me going.
+          its not a sprint, its a marathon
         </motion.p>
 
         {/* CTA buttons */}
@@ -158,51 +152,25 @@ export default function HeroSection() {
           transition={{ delay: 0.9, duration: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 items-center justify-center"
         >
-          <a
-            href="#timeline"
+          <button
+            onClick={() => onNavigate('timeline')}
             className="group flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
           >
             Start Journey
             <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="#vision"
+          </button>
+          <button
+            onClick={() => onNavigate('vision')}
             className="px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
           >
             My Vision →
-          </a>
+          </button>
         </motion.div>
 
-        {/* Stats row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="mt-20 flex flex-wrap justify-center gap-12"
-        >
-          {[
-            { val: '6+', label: 'Years of Building' },
-            { val: '14', label: 'Investor Rejections' },
-            { val: '∞', label: 'Lessons Learned' },
-          ].map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="font-syne font-black text-4xl gradient-text">{s.val}</div>
-              <div className="text-slate-400 text-sm mt-1 font-medium">{s.label}</div>
-            </div>
-          ))}
-        </motion.div>
+
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400 text-xs"
-      >
-        <span className="tracking-widest uppercase font-medium">Scroll to begin</span>
-        <ChevronDown size={17} className="animate-scroll-bounce" />
-      </motion.div>
+
     </section>
   );
 }

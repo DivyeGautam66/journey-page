@@ -18,24 +18,24 @@ const panelVariants = {
   exit:    { opacity: 0, y: -16, scale: 0.99, transition: { duration: 0.3, ease: [0.4, 0, 1, 1] } },
 };
 
-const panels = {
-  home: (
-    <>
-      <IntroSection />
-      <HeroSection />
-    </>
-  ),
-  timeline: <TimelineSection standalone />,
-  failures: <FailuresSection standalone />,
-  vision:   <VisionSection standalone />,
-};
-
 export default function App() {
   const [active, setActive] = useState('home');
 
   const navigate = (panel) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => setActive(panel), 80); // let scroll settle first
+  };
+
+  const panels = {
+    home: (
+      <>
+        <IntroSection />
+        <HeroSection onNavigate={navigate} />
+      </>
+    ),
+    timeline: <TimelineSection standalone />,
+    failures: <FailuresSection standalone />,
+    vision:   <VisionSection standalone />,
   };
 
   return (
@@ -53,8 +53,6 @@ export default function App() {
           exit="exit"
         >
           {panels[active]}
-          {/* Footer only on home */}
-          {active === 'home' && <Footer />}
         </motion.div>
       </AnimatePresence>
     </div>

@@ -151,7 +151,7 @@ export default function GrowthSection() {
             >
               <p className="text-slate-600 text-sm italic leading-relaxed">
                 "The most dangerous weapon in any startup is a builder who thinks
-                like a founder, feels like a designer, and ships like an engineer."
+                like a leader, feels like a designer, and ships like an engineer."
               </p>
               <p className="text-emerald-500 text-xs mt-2 font-mono-custom font-semibold">— My north star</p>
             </motion.div>

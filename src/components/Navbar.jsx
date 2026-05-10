@@ -40,11 +40,8 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
         {/* Logo — always goes home */}
         <button
           onClick={() => go('home')}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center group"
         >
-          <div className="w-8 h-8 rounded-xl bg-black flex items-center justify-center shadow-md group-hover:shadow-gray-400 transition-shadow duration-300">
-            <Zap size={15} className="text-white" />
-          </div>
           <span className="font-syne font-bold text-slate-900 tracking-wide">
             Divye<span className="text-black"> Gautam</span>
           </span>

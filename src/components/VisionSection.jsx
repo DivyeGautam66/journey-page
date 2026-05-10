@@ -156,7 +156,7 @@ export default function VisionSection({ standalone = false }) {
                 Not chasing trends. Building legacies.
               </p>
               <div className="flex flex-wrap gap-3">
-                {['Founder', 'Innovator', 'Impact-driven', 'E-Cell'].map((tag) => (
+                {['Innovator', 'Impact-driven', 'E-Cell'].map((tag) => (
                   <span
                     key={tag}
                     className="px-3 py-1.5 rounded-full text-xs font-semibold text-indigo-600"
