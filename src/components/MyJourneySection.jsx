@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Volume2, VolumeX, ArrowUp } from 'lucide-react';
+import ambientSound from '../assets/audio/AliSoomroMusic, Ali Raza - Muse (Official Visualizer) BIRDS IN THE TRAP.mp3';
 
 const sectionsData = [
   {
@@ -235,8 +236,15 @@ function Section({ section, index, containerRef }) {
 
 export default function MyJourneySection({ standalone = false }) {
   const containerRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      // Set the initial starting point to 19 seconds
+      audioRef.current.currentTime = 21;
+    }
+  }, []);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -255,7 +263,14 @@ export default function MyJourneySection({ standalone = false }) {
       ))}
 
       {/* Audio Element (Hidden) */}
-      <audio ref={audioRef} src="/ambient.mp3" loop />
+      <audio
+        ref={audioRef}
+        src={ambientSound}
+        onEnded={(e) => {
+          e.target.currentTime = 19;
+          e.target.play().catch(err => console.log('Loop play failed:', err));
+        }}
+      />
 
       {/* Controls Container */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
