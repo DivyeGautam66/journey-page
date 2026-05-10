@@ -156,7 +156,7 @@ export default function HeroSection({ onNavigate }) {
             onClick={() => onNavigate('timeline')}
             className="group flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
           >
-            Start Journey
+            Start timeline
             <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </motion.div>
