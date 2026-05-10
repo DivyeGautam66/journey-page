@@ -47,7 +47,7 @@ export default function CustomCursor() {
         style={{
           width: 8,
           height: 8,
-          background: '#000000',
+          background: '#ffffff',
           transform: 'translate(-50%, -50%)',
           transition: 'width 0.2s, height 0.2s',
         }}
@@ -59,10 +59,9 @@ export default function CustomCursor() {
         style={{
           width: 32,
           height: 32,
-          border: '1.5px solid rgba(0,0,0,0.4)',
+          border: '1.5px solid rgba(255,255,255,0.8)',
           background: 'transparent',
           transform: 'translate(-50%, -50%)',
-          mixBlendMode: 'normal',
         }}
       />
     </>

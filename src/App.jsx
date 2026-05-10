@@ -8,8 +8,7 @@ import Navbar from './components/Navbar';
 import IntroSection from './components/IntroSection';
 import HeroSection from './components/HeroSection';
 import TimelineSection from './components/TimelineSection';
-import FailuresSection from './components/FailuresSection';
-import VisionSection from './components/VisionSection';
+import MyJourneySection from './components/MyJourneySection';
 import Footer from './components/Footer';
 
 const panelVariants = {
@@ -34,8 +33,7 @@ export default function App() {
       </>
     ),
     timeline: <TimelineSection standalone />,
-    failures: <FailuresSection standalone />,
-    vision:   <VisionSection standalone />,
+    journey: <MyJourneySection standalone />,
   };
 
   return (

@@ -159,12 +159,6 @@ export default function HeroSection({ onNavigate }) {
             Start Journey
             <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />
           </button>
-          <button
-            onClick={() => onNavigate('vision')}
-            className="px-8 py-4 rounded-2xl font-semibold text-slate-500 hover:text-black transition-all duration-300"
-          >
-            My Vision →
-          </button>
         </motion.div>
 
 

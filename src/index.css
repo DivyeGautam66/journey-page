@@ -148,7 +148,7 @@ body {
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: multiply;
+  mix-blend-mode: difference;
 }
 
 /* Animations */

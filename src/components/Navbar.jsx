@@ -5,8 +5,7 @@ import { Zap, Menu, X } from 'lucide-react';
 
 const navLinks = [
   { label: 'Timeline', panel: 'timeline' },
-  { label: 'Failures', panel: 'failures' },
-  { label: 'Vision',   panel: 'vision' },
+  { label: 'My Journey', panel: 'journey' },
 ];
 
 export default function Navbar({ activePanel = 'home', onNavigate }) {
@@ -24,6 +23,8 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
     onNavigate?.(panel);
   };
 
+  const isDark = activePanel === 'journey';
+
   return (
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
@@ -31,7 +32,9 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
       transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/90 backdrop-blur-xl border-b border-black/[0.06] shadow-sm'
+          ? isDark 
+            ? 'bg-black/90 backdrop-blur-xl border-b border-white/[0.06] shadow-sm'
+            : 'bg-white/90 backdrop-blur-xl border-b border-black/[0.06] shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -42,8 +45,8 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
           onClick={() => go('home')}
           className="flex items-center group"
         >
-          <span className="font-syne font-bold text-slate-900 tracking-wide">
-            Divye<span className="text-black"> Gautam</span>
+          <span className={`font-syne font-bold tracking-wide transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>
+            Divye<span className={isDark ? 'text-white/70' : 'text-black'}> Gautam</span>
           </span>
         </button>
 
@@ -57,8 +60,8 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
                 onClick={() => go(link.panel)}
                 className={`relative px-4 py-2 rounded-xl text-sm font-medium tracking-wide transition-all duration-250 ${
                   isActive
-                    ? 'text-black'
-                    : 'text-slate-500 hover:text-black'
+                    ? (isDark ? 'text-white' : 'text-black')
+                    : (isDark ? 'text-white/60 hover:text-white' : 'text-slate-500 hover:text-black')
                 }`}
               >
                 {/* Active pill */}
@@ -66,7 +69,10 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
                   <motion.span
                     layoutId="nav-pill"
                     className="absolute inset-0 rounded-xl"
-                    style={{ background: 'rgba(0,0,0,0.06)', border: '1px solid rgba(0,0,0,0.15)' }}
+                    style={{ 
+                      background: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.06)', 
+                      border: isDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.15)' 
+                    }}
                     transition={{ type: 'spring', bounce: 0.2, duration: 0.45 }}
                   />
                 )}
@@ -75,13 +81,6 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
             );
           })}
 
-          {/* Connect CTA */}
-          <button
-            onClick={() => go('vision')}
-            className="relative ml-2 px-4 py-2 rounded-xl text-sm font-medium tracking-wide transition-all duration-250 text-slate-500 hover:text-black"
-          >
-            Connect
-          </button>
         </div>
 
         {/* Mobile toggle */}
