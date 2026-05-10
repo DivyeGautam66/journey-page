@@ -34,9 +34,8 @@ export default function IntroSection() {
         background: 'linear-gradient(160deg, #f0f4ff 0%, #f8f9ff 60%, #fdf4ff 100%)',
         paddingTop: '6rem',
         paddingBottom: '6rem',
-        marginBottom: '6rem',
-        marginTop: '6rem',
-
+        marginBottom: '0',
+        marginTop: '0',
       }}
     >
       {/* Soft blobs */}
@@ -57,16 +56,8 @@ export default function IntroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-14"
+              className="mb-20"
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={inView ? { opacity: 1 } : {}}
-                transition={{ delay: 0.05 }}
-                className="font-mono-custom text-xs tracking-widest uppercase text-black font-semibold mb-3 block"
-              >
-                Divye Gautam
-              </motion.span>
               <h1
                 className="font-syne font-black leading-[1.08] tracking-tight text-slate-900"
                 style={{ fontSize: 'clamp(2rem, 4.5vw, 3.6rem)' }}
@@ -76,14 +67,14 @@ export default function IntroSection() {
             </motion.div>
 
             {/* Divider */}
-            <div className="w-full h-px bg-slate-200 mb-24 mt-4" />
+            <div className="w-full h-px bg-slate-200 mb-10 mt-4" />
 
             {/* Bottom row: "Intro" label + paragraph */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-col sm:flex-row gap-8 sm:gap-12 pt-6"
+              className="flex flex-col gap-4 pt-6"
             >
               {/* Label */}
               <div className="sm:w-32 flex-shrink-0">
