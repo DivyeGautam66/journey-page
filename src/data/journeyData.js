@@ -63,7 +63,7 @@ export const timelineMilestones = [
     phase: 'Phase 06',
     title: 'The Realization',
     subtitle: 'Finding the silver lining',
-    description: 'Secured around AIR 15,000 among more than 1.5 million students. Saw pride and happiness on my father\'s face. Understood that even though I missed my dream target, I had still achieved something valuable.',
+    description: 'Secured around AIR 15,000 among more than 150k  students. Saw pride and happiness on my father\'s face. Understood that even though I missed my dream target, I had still achieved something valuable.',
     icon: 'Lightbulb',
     color: '#000000ff',
     tags: ['AIR 15,000', 'Pride', 'Perspective'],
