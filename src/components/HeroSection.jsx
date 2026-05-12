@@ -12,6 +12,7 @@ export default function HeroSection({ onNavigate }) {
 
   // GSAP word cycling
   useEffect(() => {
+
     let idx = 0;
     const cycle = () => {
       if (!wordRef.current) return;
@@ -108,7 +109,7 @@ export default function HeroSection({ onNavigate }) {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          className="inline-flex items-center text-black text-sm font-medium mb-8"
+          className="inline-flex items-center text-black text-xl md:text-2xl font-medium mb-8"
         >
           Divye Gautam
         </motion.div>

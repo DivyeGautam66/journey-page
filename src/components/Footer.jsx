@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="w-9 h-9 rounded-xl bg-black flex items-center justify-center shadow-md">
               <Zap size={17} className="text-white" />
             </div>
-            <span className="font-syne font-bold text-xl text-black">
+            <span className="font-syne font-bold text-2xl md:text-3xl text-black">
               Divye<span className="text-black"> Gautam</span>
             </span>
           </div>

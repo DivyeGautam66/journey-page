@@ -45,7 +45,7 @@ export default function Navbar({ activePanel = 'home', onNavigate }) {
           onClick={() => go('home')}
           className="flex items-center group"
         >
-          <span className={`font-syne font-bold tracking-wide transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>
+          <span className={`font-syne font-bold text-2xl md:text-3xl tracking-wide transition-colors ${isDark ? 'text-white' : 'text-slate-900'}`}>
             Divye<span className={isDark ? 'text-white/70' : 'text-black'}> Gautam</span>
           </span>
         </button>
