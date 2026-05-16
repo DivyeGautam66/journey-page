@@ -38,7 +38,7 @@ export default function IntroSection() {
         marginTop: '0',
       }}
     >
-      {/* Soft blobs */}
+      
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute rounded-full blur-[120px]"
           style={{ width: 500, height: 500, top: '-10%', left: '-5%', background: 'radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%)' }} />
